@@ -1,53 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <!-- displays site properly based on user's device -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Frontend Mentor | Calculator app</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.scss">
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attr
-     
-   ibution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-  <div class="theme">theme</div>
-  <div class="result">12345</div>
-  <div class="calc" onclick="numbers()">
-    <button id="seven">7</button>
-    <button id="eight">8</button>
-    <button id="nine">9</button>
-    <button id="del">DEL</button>
-    <button id="four">4</button>
-    <button id="five">5</button>
-    <button id="six">6</button>
-    <button id="plus">+</button>
-    <button id="one">1</button>
-    <button id="two">2</button>
-    <button id="three">3</button>
-    <button id="minus">-</button>
-    <button id="dot">.</button>
-    <button id="zero">0</button>
-    <button id="devise">/</button>
-    <button id="multiple">x</button>
-    <button id="reset">RESET</button>
-    <button id="equal">=</button>
+<body class="container">
+  <div class="calc">
+    <h4>calc</h4>
+    <h5>theme</h5>
+    <ul class="mode">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul> 
+    <button class="btn"></button>
   </div>
-
-
-
+  <div class="screen"></div>
+  <div class="main">
+    <button class="key">7</button>
+    <button class="key">8</button>
+    <button class="key">9</button>
+    <button id="delete" class="key">DEL</button>
+    <button class="key">4</button>
+    <button class="key">5</button>
+    <button class="key">6</button>
+    <button id="addition" class="key">+</button>
+    <button class="key">1</button>
+    <button class="key">2</button>
+    <button class="key">3</button>
+    <button id="substraction" class="key">-</button>
+    <button class="key">.</button>
+    <button class="key">0</button>
+    <button id="division" class="key">/</button>
+    <button id="multiplication" class="key">x</button>
+    <button id="reset" class="key">RESET</button>
+    <button id="equal" class="key">=</button>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.

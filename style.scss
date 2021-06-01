@@ -1,3 +1,121 @@
-// Thème 1
-// Thème 2
-// Thème 3
+// variables des thèmes à rajouter
+// Font size numbers
+$size: 32px;
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;;
+  font-weight: 700;
+
+
+  .key {
+    font-size: $size;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+    border-bottom-style: outset;
+  }
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 30% 1fr 30%;
+  grid-template-rows: 20% 15% 50% 1fr;
+  grid-template-areas:
+  ". calc ."
+  ". screen ."
+  ". main ."
+  ". . .";
+}
+
+.calc {
+  margin: auto;
+  margin-bottom: 5px;
+  width:25em;
+  height: 5em;
+  background:lightblue;
+  border-radius: 5px;
+  grid-area: calc;
+  display: grid;
+  grid-template-rows: 1fr 20% 20%;
+  grid-template-columns: 15% 1fr 10% 17%;
+  grid-template-areas: 
+  ". . . mode"
+  "calc . theme btn"
+  ". . . .";
+
+  h4 {
+    grid-area: calc;
+  }
+
+  h5 {
+    grid-area: theme;
+  }
+
+  .btn {
+    margin: 0 auto;
+    width: 3em;
+    height: 15px;
+    border-radius: 50px;
+    grid-area: btn;
+  }
+
+  ul {
+    grid-area: mode;
+    text-align: center;
+    align-self: flex-end;
+    display: block;
+    padding: 0;
+  }
+
+  ul > li {
+    list-style: none;
+    display: inline-block;
+    align-items: center;
+  }
+}
+
+.screen {
+  margin: auto;
+  margin-bottom: 0;
+  width:25em;
+  height: 15vh;
+  background:lightblue;
+  border-radius: 5px;
+  grid-area: screen;
+}
+
+.main {
+  margin: auto;
+  padding: 15px;
+  width:25em;
+  height: 20em;
+  background:lightblue;
+  border-radius: 5px;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  grid-template-areas: 
+  ". . . ."
+  ". . . ."
+  ". . . ."
+  ". . . ."
+  "reset reset equal equal";
+}
+
+#reset {
+  grid-area: reset;
+}
+
+#equal {
+  grid-area: equal;
+}
+

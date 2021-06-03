@@ -21,7 +21,7 @@ body .key {
   display: grid;
   grid-template-columns: 30% 1fr 30%;
   grid-template-rows: 20% 15% 50% 1fr;
-  grid-template-areas: ". calc ." ". screen ." ". main ." ". . .";
+  grid-template-areas: ". calc ." ". screen ." ". main ." ". attribution .";
 }
 
 .calc {
@@ -93,4 +93,10 @@ body .key {
 
 #equal {
   grid-area: equal;
+}
+
+.attribution {
+  grid-area: attribution;
+  text-align: center;
+  align-self: center;
 }/*# sourceMappingURL=style.css.map */

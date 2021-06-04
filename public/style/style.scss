@@ -1,8 +1,49 @@
 // variables des thèmes à rajouter
+$themes: (
+  one: (
+    mainBackground: hsl(222, 26%, 31%),
+    screenBackground: hsl(224, 36%, 15%),
+    keypadToggleBackground: hsl(223, 31%, 20%),
+    delResetBackground: hsl(225, 21%, 49%),
+    delResetShadow: 3px solid hsl(224, 28%, 35%),
+    equalToggleBackground: hsl(6, 63%, 50%),
+    equalShadow: 3px solid hsl(6, 70%, 34%),
+    numbersBackground: hsl(30, 25%, 89%),
+    numbersShadow: 3px solid hsl(28, 16%, 65%),
+    colorTextOne: hsl(221, 14%, 31%),
+    colorTextTwo: hsl(0, 0, 100%),
+  ),
+  two: (
+    mainBackground: hsl(0, 0%, 90%),
+    screenBackground: hsl(0, 0%, 93%),
+    keypadToggleBackground: hsl(0, 5%, 81%),
+    delResetBackground: hsl(185, 42%, 37%),
+    delResetShadow: 3px solid hsl(185, 58%, 25%),
+    equalToggleBackground: hsl(25, 98%, 40%),
+    equalShadow: 3px solid hsl(25, 99%, 27%),
+    numbersBackground: hsl(45, 7%, 89%),
+    numbersShadow: 3px solid hsl(35, 11%, 61%),
+    colorTextOne: hsl(60, 10%, 19%),
+    colorTextTwo: hsl(0, 0, 100%),
+  ),
+  three: (
+    mainBackground: hsl(268, 75%, 9%),
+    screenBackground: hsl(268, 71%, 12%),
+    keypadToggleBackground: hsl(268, 71%, 12%),
+    delResetBackground: hsl(281, 89%, 26%),
+    delResetShadow: 3px solid hsl(285, 91%, 52%),
+    equalToggleBackground: hsl(176, 100%, 44%),
+    equalShadow:  3px solid hsl(177, 92%, 70%),
+    numbersBackground: hsl(268, 47%, 21%),
+    numbersShadow: 3px solid hsl(290, 70%, 36%),
+    colorTextOne: hsl(52, 100%, 62%),
+    colorTextTwo: hsl(198, 20%, 13%),
+    colorTextThree: hsl(0, 0, 100%),
+  ),
+);
+
 // Font size numbers
 $size: 32px;
-
-
 
 * {
   box-sizing: border-box;
@@ -13,7 +54,6 @@ body {
   font-family: 'Spartan', sans-serif;;
   font-weight: 700;
 
-
   .key {
     font-size: $size;
     border-radius: 10px;
@@ -22,6 +62,7 @@ body {
     border-bottom-style: outset;
   }
 }
+
 .container {
   width: 100vw;
   height: 100vh;

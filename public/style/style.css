@@ -1,102 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+:root {
+  --mainBackground: hsl(222, 26%, 31%);
+  --screenBackground: hsl(224, 36%, 15%);
+  --keypadToggleBackground: hsl(223, 31%, 20%);
+  --delResetBackground: hsl(225, 21%, 49%);
+  --delResetShadow: 3px solid hsl(224, 28%, 35%);
+  --equalToggleBackground: hsl(6, 63%, 50%);
+  --equalShadow: 3px solid hsl(6, 70%, 34%);
+  --numbersBackground: hsl(30, 25%, 89%);
+  --numbersShadow: 3px solid hsl(28, 16%, 65%);
+  --colorTextOne: hsl(221, 14%, 31%);
+  --colorTextTwo: hsl(0, 0%, 100%);
+}
+
 * {
-  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
   margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: "Spartan", sans-serif;
-  font-weight: 700;
-}
-body .key {
-  font-size: 32px;
-  border-radius: 10px;
-  margin: 5px;
-  border: none;
-  border-bottom-style: outset;
+  background-color: var(--mainBackground);
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 30% 1fr 30%;
-  grid-template-rows: 20% 15% 50% 1fr;
-  grid-template-areas: ". calc ." ". screen ." ". main ." ". attribution .";
-}
-
-.calc {
+main {
   margin: auto;
-  margin-bottom: 5px;
-  width: 25em;
-  height: 5em;
-  background: lightblue;
-  border-radius: 5px;
-  grid-area: calc;
-  display: grid;
-  grid-template-rows: 1fr 20% 20%;
-  grid-template-columns: 15% 1fr 10% 17%;
-  grid-template-areas: ". . . mode" "calc . theme btn" ". . . .";
-}
-.calc h4 {
-  grid-area: calc;
-}
-.calc h5 {
-  grid-area: theme;
-}
-.calc .btn {
-  margin: 0 auto;
-  width: 3em;
-  height: 15px;
-  border-radius: 50px;
-  grid-area: btn;
-}
-.calc ul {
-  grid-area: mode;
-  text-align: center;
-  align-self: flex-end;
-  display: block;
-  padding: 0;
-}
-.calc ul > li {
-  list-style: none;
-  display: inline-block;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.top {
+  width: 21.9rem;
+  height: auto;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr 15% 5% 5% 5%;
+  grid-template-rows: 10px 20px;
+  gap: 5px 8px;
+  grid-template-areas: ". . number1 number2 number3" "title theme switch switch switch";
+  color: var(--colorTextTwo);
+}
+.top-number {
+  text-align: center;
+  font-size: 0.7em;
+}
+.top-number-1 {
+  grid-area: number1;
+  text-align: center;
+}
+.top-number-2 {
+  grid-area: number2;
+  text-align: center;
+}
+.top-number-3 {
+  grid-area: number3;
+  text-align: center;
+}
+.top-title {
+  grid-area: title;
+}
+.top-theme {
+  grid-area: theme;
+  font-size: 0.7em;
+}
+.top-switch-field {
+  grid-area: switch;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  background-color: var(--keypadToggleBackground);
+  color: var(--keypadToggleBackground);
+  border-radius: 20px;
+}
+.top-switch-field-toggle {
+  position: absolute;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: all 0.5s ease;
+  background-color: yellow;
+}
+.top-switch-field input {
+  display: none;
+}
+.top-switch-field label {
+  text-align: center;
+}
+.top-switch-field label:hover {
+  cursor: pointer;
+}
+.top-switch-field input:checked + label {
+  background-color: var(--equalToggleBackground);
+  color: var(--equalToggleBackground);
+  border-radius: 50%;
+  box-shadow: none;
+  width: 18px;
 }
 
 .screen {
-  margin: auto;
-  margin-bottom: 0;
-  width: 25em;
-  height: 15vh;
-  background: lightblue;
+  width: 20rem;
+  height: 3rem;
+  margin: 5px;
+  padding: 15px;
+  font-size: 32px;
   border-radius: 5px;
-  grid-area: screen;
+  background-color: var(--screenBackground);
+  color: var(--colorTextTwo);
+  text-align: right;
 }
 
-.main {
-  margin: auto;
+.keyboard {
+  width: 20em;
+  height: 18em;
+  margin: 5px;
   padding: 15px;
-  width: 25em;
-  height: 20em;
-  background: lightblue;
   border-radius: 5px;
-  grid-area: main;
+  color: var(--equalShadow);
+  background-color: var(--keypadToggleBackground);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 15px;
   grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . ." "reset reset equal equal";
 }
-
-#reset {
+.keyboard-button {
+  height: 45px;
+  font-size: 1.2em;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--numbersBackground);
+  border-bottom: var(--numbersShadow);
+  color: var(--colorTextOne);
+}
+.keyboard-button-reset, .keyboard-button-delete {
+  background-color: var(--delResetBackground);
+  border-bottom: var(--delResetShadow);
+  color: var(--colorTextTwo);
+  font-size: 0.8em;
+}
+.keyboard-button-equal {
+  grid-area: equal;
+  background-color: var(--equalToggleBackground);
+  border-bottom: var(--equalShadow);
+  color: var(--colorTextTwo);
+}
+.keyboard-button-reset {
   grid-area: reset;
 }
 
-#equal {
-  grid-area: equal;
-}
-
-.attribution {
-  grid-area: attribution;
-  text-align: center;
-  align-self: center;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
 }/*# sourceMappingURL=style.css.map */

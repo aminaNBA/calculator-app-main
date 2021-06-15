@@ -10,8 +10,9 @@ key.forEach((element) => {
       calcul = 0;
       operator = false;
     } else if (element.id == "equal") {
-      if (screen[0].textContent != "0") {
-        screen[0].textContent = eval(calcul);
+      if (screen[0].textContent != "0" && operator == false) {
+        result = eval(calcul);
+        screen[0].textContent = result.toString().slice(0, 14);
         calcul = screen[0].textContent;
       }
     } else if (element.id == "delete") {
@@ -53,16 +54,21 @@ key.forEach((element) => {
           );
           calcul = calcul.slice(0, calcul.length - 1);
         }
-        operator = true;
+        if (screen[0].textContent.length < 14) {
+          operator = true;
+        }
       } else {
         operator = false;
       }
-      if (element.textContent == "x") {
-        calcul += "*";
-      } else {
-        calcul += element.textContent;
+      //screen can accepte only 14 caracters
+      if (screen[0].textContent.length < 14) {
+        if (element.textContent == "x") {
+          calcul += "*";
+        } else {
+          calcul += element.textContent;
+        }
+        screen[0].textContent += element.textContent;
       }
-      screen[0].textContent += element.textContent;
     }
   });
 });

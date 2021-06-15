@@ -10,8 +10,10 @@ key.forEach((element) => {
       calcul = 0;
       operator = false;
     } else if (element.id == "equal") {
-      screen[0].textContent = eval(calcul);
-      calcul = screen[0].textContent;
+      if (screen[0].textContent != "0") {
+        screen[0].textContent = eval(calcul);
+        calcul = screen[0].textContent;
+      }
     } else if (element.id == "delete") {
       if (operator == true) {
         screen[0].textContent = screen[0].textContent.slice(
@@ -43,7 +45,7 @@ key.forEach((element) => {
         element.textContent == "+" ||
         element.textContent == "/"
       ) {
-        //if there is already an operator and and user tip on another operator, delete the old one.
+        //if there is already an operator and user tip on another operator, delete and replace operator.
         if (operator == true) {
           screen[0].textContent = screen[0].textContent.slice(
             0,

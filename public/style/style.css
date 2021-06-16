@@ -121,7 +121,7 @@ main {
   height: 16px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  background-color: yellow;
+  background-color: var(--equalToggleBackground);
 }
 
 .top-switch-field input {

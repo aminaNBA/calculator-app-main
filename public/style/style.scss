@@ -54,6 +54,7 @@
   --colorTextOne: hsl(221, 14%, 31%);
   --colorTextTwo: hsl(0, 0%, 100%);
   --colorTextThree: hsl(0, 0%, 100%);
+  --position: 2px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
@@ -123,7 +124,7 @@ main {
     &-toggle {
       position: relative;
       top: -22px;
-      left: 2px;
+      left: var(--position);
       border-radius: 50%;
       width: 16px;
       height: 16px;

@@ -12,6 +12,7 @@
   --colorTextOne: hsl(221, 14%, 31%);
   --colorTextTwo: hsl(0, 0%, 100%);
   --colorTextThree: hsl(0, 0%, 100%);
+  --position: 2px;
 }
 
 * {
@@ -115,7 +116,7 @@ main {
 .top-switch-field-toggle {
   position: relative;
   top: -22px;
-  left: 2px;
+  left: var(--position);
   border-radius: 50%;
   width: 16px;
   height: 16px;

@@ -142,6 +142,7 @@ themes.forEach((input) =>
         `--colorTextThree`,
         "hsl(0, 0%, 100%)"
       );
+      document.documentElement.style.setProperty(`--position`, "2px");
     }
     //second theme
     else if (input.value == "two") {
@@ -193,6 +194,7 @@ themes.forEach((input) =>
         `--colorTextThree`,
         "hsl(0, 0%, 100%)"
       );
+      document.documentElement.style.setProperty(`--position`, "26px");
     }
     //third theme
     else {
@@ -244,6 +246,7 @@ themes.forEach((input) =>
         `--colorTextThree`,
         "hsl(198, 20%, 13%)"
       );
+      document.documentElement.style.setProperty(`--position`, "50px");
     }
   })
 );

@@ -53,6 +53,7 @@
   --numbersShadow: 3px solid hsl(28, 16%, 65%);
   --colorTextOne: hsl(221, 14%, 31%);
   --colorTextTwo: hsl(0, 0%, 100%);
+  --colorTextThree: hsl(0, 0%, 100%);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
@@ -120,7 +121,9 @@ main {
     color: var(--keypadToggleBackground);
     border-radius: 20px;
     &-toggle {
-      position: absolute;
+      position: relative;
+      top: -22px;
+      left: 2px;
       border-radius: 50%;
       width: 16px;
       height: 16px;
@@ -137,13 +140,13 @@ main {
   &-switch-field label:hover {
     cursor: pointer;
   }
-  &-switch-field input:checked + label {
-    background-color: var(--equalToggleBackground);
-    color: var(--equalToggleBackground);
-    border-radius: 50%;
-    box-shadow: none;
-    width: 18px;
-  }
+  // &-switch-field input:checked + label {
+  //   background-color: var(--equalToggleBackground);
+  //   color: var(--equalToggleBackground);
+  //   border-radius: 50%;
+  //   box-shadow: none;
+  //   width: 18px;
+  // }
 }
 
 .screen {
@@ -189,14 +192,14 @@ main {
     &-delete {
       background-color: var(--delResetBackground);
       border-bottom: var(--delResetShadow);
-      color: var(--colorTextTwo);
+      color: white;
       font-size: 0.8em;
     }
     &-equal {
       grid-area: equal;
       background-color: var(--equalToggleBackground);
       border-bottom: var(--equalShadow);
-      color: var(--colorTextTwo);
+      color: var(--colorTextThree);
     }
     &-reset {
       grid-area: reset;

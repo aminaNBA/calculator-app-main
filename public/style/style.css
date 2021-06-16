@@ -11,6 +11,7 @@
   --numbersShadow: 3px solid hsl(28, 16%, 65%);
   --colorTextOne: hsl(221, 14%, 31%);
   --colorTextTwo: hsl(0, 0%, 100%);
+  --colorTextThree: hsl(0, 0%, 100%);
 }
 
 * {
@@ -27,78 +28,112 @@ body {
 main {
   margin: auto;
   height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .top {
   width: 21.9rem;
   height: auto;
   margin-bottom: 15px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 15% 5% 5% 5%;
-  grid-template-rows: 10px 20px;
+  -ms-grid-columns: 1fr 15% 5% 5% 5%;
+      grid-template-columns: 1fr 15% 5% 5% 5%;
+  -ms-grid-rows: 10px 20px;
+      grid-template-rows: 10px 20px;
   gap: 5px 8px;
-  grid-template-areas: ". . number1 number2 number3" "title theme switch switch switch";
+      grid-template-areas: ". . number1 number2 number3" "title theme switch switch switch";
   color: var(--colorTextTwo);
 }
+
 .top-number {
   text-align: center;
   font-size: 0.7em;
 }
+
 .top-number-1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
   grid-area: number1;
   text-align: center;
 }
+
 .top-number-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
   grid-area: number2;
   text-align: center;
 }
+
 .top-number-3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
   grid-area: number3;
   text-align: center;
 }
+
 .top-title {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: title;
 }
+
 .top-theme {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
   grid-area: theme;
   font-size: 0.7em;
 }
+
 .top-switch-field {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
   grid-area: switch;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   gap: 5px;
   background-color: var(--keypadToggleBackground);
   color: var(--keypadToggleBackground);
   border-radius: 20px;
 }
+
 .top-switch-field-toggle {
-  position: absolute;
+  position: relative;
+  top: -22px;
+  left: 2px;
   border-radius: 50%;
   width: 16px;
   height: 16px;
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   background-color: yellow;
 }
+
 .top-switch-field input {
   display: none;
 }
+
 .top-switch-field label {
   text-align: center;
 }
+
 .top-switch-field label:hover {
   cursor: pointer;
-}
-.top-switch-field input:checked + label {
-  background-color: var(--equalToggleBackground);
-  color: var(--equalToggleBackground);
-  border-radius: 50%;
-  box-shadow: none;
-  width: 18px;
 }
 
 .screen {
@@ -121,11 +156,14 @@ main {
   border-radius: 5px;
   color: var(--equalShadow);
   background-color: var(--keypadToggleBackground);
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
-  grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . ." "reset reset equal equal";
+      grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . ." "reset reset equal equal";
 }
+
 .keyboard-button {
   height: 45px;
   font-size: 1.2em;
@@ -136,25 +174,41 @@ main {
   border-bottom: var(--numbersShadow);
   color: var(--colorTextOne);
 }
+
 .keyboard-button-reset, .keyboard-button-delete {
   background-color: var(--delResetBackground);
   border-bottom: var(--delResetShadow);
-  color: var(--colorTextTwo);
+  color: white;
   font-size: 0.8em;
 }
+
 .keyboard-button-equal {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
   grid-area: equal;
   background-color: var(--equalToggleBackground);
   border-bottom: var(--equalShadow);
-  color: var(--colorTextTwo);
+  color: var(--colorTextThree);
 }
+
 .keyboard-button-reset {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: reset;
 }
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 45px;
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */

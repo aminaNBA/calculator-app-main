@@ -136,7 +136,11 @@ themes.forEach((input) =>
       );
       document.documentElement.style.setProperty(
         `--colorTextTwo`,
-        "hsl(0, 0, 100%)"
+        "hsl(0, 0%, 100%)"
+      );
+      document.documentElement.style.setProperty(
+        `--colorTextThree`,
+        "hsl(0, 0%, 100%)"
       );
     }
     //second theme
@@ -185,6 +189,10 @@ themes.forEach((input) =>
         `--colorTextTwo`,
         "hsl(0, 0, 100%)"
       );
+      document.documentElement.style.setProperty(
+        `--colorTextThree`,
+        "hsl(0, 0%, 100%)"
+      );
     }
     //third theme
     else {
@@ -230,6 +238,10 @@ themes.forEach((input) =>
       );
       document.documentElement.style.setProperty(
         `--colorTextTwo`,
+        "hsl(52, 100%, 62%)"
+      );
+      document.documentElement.style.setProperty(
+        `--colorTextThree`,
         "hsl(198, 20%, 13%)"
       );
     }

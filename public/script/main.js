@@ -89,72 +89,8 @@ findLastIndex = () => {
   return lastIndex;
 };
 
-let themeProperties = [
-  "--mainBackground",
-  "--screenBackground",
-  "--keypadToggleBackground",
-  "--delResetBackground",
-  "--delResetShadow",
-  "--equalToggleBackground",
-  "--equalShadow",
-  "--numbersBackground",
-  "--numbersShadow",
-  "--colorTextOne",
-  "--colorTextTwo",
-  "--colorTextThree",
-  "--position"
-];
-let themevalues = [
-  [
-    "hsl(222, 26%, 31%)",
-    "hsl(224, 36%, 15%)",
-    "hsl(223, 31%, 20%)",
-    "hsl(225, 21%, 49%)",
-    "3px solid hsl(224, 28%, 35%)",
-    "hsl(6, 63%, 50%)",
-    "3px solid hsl(6, 70%, 34%)",
-    "hsl(30, 25%, 89%)",
-    "3px solid hsl(28, 16%, 65%)",
-    "hsl(221, 14%, 31%)",
-    "hsl(0, 0%, 100%)",
-    "hsl(0, 0%, 100%)",
-    "2px"
-  ],
-  [
-    "hsl(0, 0%, 90%)",
-    "hsl(0, 0%, 93%)",
-    "hsl(0, 5%, 81%)",
-    "hsl(185, 42%, 37%)",
-    "3px solid hsl(185, 58%, 25%)",
-    "hsl(25, 98%, 40%)",
-    "3px solid hsl(25, 99%, 27%)",
-    "hsl(45, 7%, 89%)",
-    "3px solid hsl(35, 11%, 61%)",
-    "hsl(60, 10%, 19%)",
-    "hsl(0, 0, 100%)",
-    "hsl(0, 0%, 100%)",
-    "26px"
-  ],
-  [
-    "hsl(268, 75%, 9%)",
-    "hsl(268, 71%, 12%)",
-    "hsl(268, 71%, 12%)",
-    "hsl(281, 89%, 26%)",
-    "3px solid hsl(285, 91%, 52%)",
-    "hsl(176, 100%, 44%)",
-    "3px solid hsl(177, 92%, 70%)",
-    "hsl(268, 47%, 21%)",
-    "3px solid hsl(290, 70%, 36%)",
-    "hsl(52, 100%, 62%)",
-    "hsl(52, 100%, 62%)",
-    "hsl(198, 20%, 13%)",
-    "50px"
-  ]
-];
-
 themes.forEach((input) =>
   input.addEventListener("click", () => {
-    //first theme
     switch (input.value) {
       case "one":
         themeNumber = 0;
@@ -168,8 +104,15 @@ themes.forEach((input) =>
       default:
         themeNumber = 0;
     }
-    for (let i = 0; i < themeProperties.length; i++) {
-      style.setProperty(themeProperties[i], themevalues[themeNumber][i]);
-    }
+    fetch("./public/script/data.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        for (var key in response.themes[themeNumber]) {
+          style.setProperty(key, response.themes[themeNumber][key]);
+        }
+      })
+      .catch((error) => alert("Erreur : " + error));
   })
 );

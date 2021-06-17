@@ -1,9 +1,12 @@
 let key = document.querySelectorAll(".keyboard-button");
 let screen = document.getElementsByClassName("screen");
 let themes = document.querySelectorAll("input");
-//calcul is used as string and initialise at
-calcul = 0;
-operator = false;
+let style = document.documentElement.style;
+
+let calcul = "";
+let operator = false;
+let themeNumber = 0;
+
 key.forEach((element) => {
   element.addEventListener("click", () => {
     if (element.id == "reset") {
@@ -86,167 +89,87 @@ findLastIndex = () => {
   return lastIndex;
 };
 
-modifyTheme = () => {
-  console.log(this);
-};
+let themeProperties = [
+  "--mainBackground",
+  "--screenBackground",
+  "--keypadToggleBackground",
+  "--delResetBackground",
+  "--delResetShadow",
+  "--equalToggleBackground",
+  "--equalShadow",
+  "--numbersBackground",
+  "--numbersShadow",
+  "--colorTextOne",
+  "--colorTextTwo",
+  "--colorTextThree",
+  "--position"
+];
+let themevalues = [
+  [
+    "hsl(222, 26%, 31%)",
+    "hsl(224, 36%, 15%)",
+    "hsl(223, 31%, 20%)",
+    "hsl(225, 21%, 49%)",
+    "3px solid hsl(224, 28%, 35%)",
+    "hsl(6, 63%, 50%)",
+    "3px solid hsl(6, 70%, 34%)",
+    "hsl(30, 25%, 89%)",
+    "3px solid hsl(28, 16%, 65%)",
+    "hsl(221, 14%, 31%)",
+    "hsl(0, 0%, 100%)",
+    "hsl(0, 0%, 100%)",
+    "2px"
+  ],
+  [
+    "hsl(0, 0%, 90%)",
+    "hsl(0, 0%, 93%)",
+    "hsl(0, 5%, 81%)",
+    "hsl(185, 42%, 37%)",
+    "3px solid hsl(185, 58%, 25%)",
+    "hsl(25, 98%, 40%)",
+    "3px solid hsl(25, 99%, 27%)",
+    "hsl(45, 7%, 89%)",
+    "3px solid hsl(35, 11%, 61%)",
+    "hsl(60, 10%, 19%)",
+    "hsl(0, 0, 100%)",
+    "hsl(0, 0%, 100%)",
+    "26px"
+  ],
+  [
+    "hsl(268, 75%, 9%)",
+    "hsl(268, 71%, 12%)",
+    "hsl(268, 71%, 12%)",
+    "hsl(281, 89%, 26%)",
+    "3px solid hsl(285, 91%, 52%)",
+    "hsl(176, 100%, 44%)",
+    "3px solid hsl(177, 92%, 70%)",
+    "hsl(268, 47%, 21%)",
+    "3px solid hsl(290, 70%, 36%)",
+    "hsl(52, 100%, 62%)",
+    "hsl(52, 100%, 62%)",
+    "hsl(198, 20%, 13%)",
+    "50px"
+  ]
+];
 
 themes.forEach((input) =>
   input.addEventListener("click", () => {
     //first theme
-    if (input.value == "one") {
-      document.documentElement.style.setProperty(
-        `--mainBackground`,
-        "hsl(222, 26%, 31%)"
-      );
-      document.documentElement.style.setProperty(
-        `--screenBackground`,
-        "hsl(224, 36%, 15%)"
-      );
-      document.documentElement.style.setProperty(
-        `--keypadToggleBackground`,
-        "hsl(223, 31%, 20%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetBackground`,
-        "hsl(225, 21%, 49%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetShadow`,
-        "3px solid hsl(224, 28%, 35%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalToggleBackground`,
-        "hsl(6, 63%, 50%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalShadow`,
-        "3px solid hsl(6, 70%, 34%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersBackground`,
-        "hsl(30, 25%, 89%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersShadow`,
-        "3px solid hsl(28, 16%, 65%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextOne`,
-        "hsl(221, 14%, 31%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextTwo`,
-        "hsl(0, 0%, 100%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextThree`,
-        "hsl(0, 0%, 100%)"
-      );
-      document.documentElement.style.setProperty(`--position`, "2px");
+    switch (input.value) {
+      case "one":
+        themeNumber = 0;
+        break;
+      case "two":
+        themeNumber = 1;
+        break;
+      case "three":
+        themeNumber = 2;
+        break;
+      default:
+        themeNumber = 0;
     }
-    //second theme
-    else if (input.value == "two") {
-      document.documentElement.style.setProperty(
-        `--mainBackground`,
-        "hsl(0, 0%, 90%)"
-      );
-      document.documentElement.style.setProperty(
-        `--screenBackground`,
-        "hsl(0, 0%, 93%)"
-      );
-      document.documentElement.style.setProperty(
-        `--keypadToggleBackground`,
-        "hsl(0, 5%, 81%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetBackground`,
-        "hsl(185, 42%, 37%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetShadow`,
-        "3px solid hsl(185, 58%, 25%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalToggleBackground`,
-        "hsl(25, 98%, 40%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalShadow`,
-        "3px solid hsl(25, 99%, 27%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersBackground`,
-        "hsl(45, 7%, 89%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersShadow`,
-        "3px solid hsl(35, 11%, 61%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextOne`,
-        "hsl(60, 10%, 19%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextTwo`,
-        "hsl(0, 0, 100%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextThree`,
-        "hsl(0, 0%, 100%)"
-      );
-      document.documentElement.style.setProperty(`--position`, "26px");
-    }
-    //third theme
-    else {
-      document.documentElement.style.setProperty(
-        `--mainBackground`,
-        "hsl(268, 75%, 9%)"
-      );
-      document.documentElement.style.setProperty(
-        `--screenBackground`,
-        "hsl(268, 71%, 12%)"
-      );
-      document.documentElement.style.setProperty(
-        `--keypadToggleBackground`,
-        "hsl(268, 71%, 12%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetBackground`,
-        "hsl(281, 89%, 26%)"
-      );
-      document.documentElement.style.setProperty(
-        `--delResetShadow`,
-        "3px solid hsl(285, 91%, 52%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalToggleBackground`,
-        "hsl(176, 100%, 44%)"
-      );
-      document.documentElement.style.setProperty(
-        `--equalShadow`,
-        "3px solid hsl(177, 92%, 70%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersBackground`,
-        "hsl(268, 47%, 21%)"
-      );
-      document.documentElement.style.setProperty(
-        `--numbersShadow`,
-        "3px solid hsl(290, 70%, 36%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextOne`,
-        "hsl(52, 100%, 62%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextTwo`,
-        "hsl(52, 100%, 62%)"
-      );
-      document.documentElement.style.setProperty(
-        `--colorTextThree`,
-        "hsl(198, 20%, 13%)"
-      );
-      document.documentElement.style.setProperty(`--position`, "50px");
+    for (let i = 0; i < themeProperties.length; i++) {
+      style.setProperty(themeProperties[i], themevalues[themeNumber][i]);
     }
   })
 );
